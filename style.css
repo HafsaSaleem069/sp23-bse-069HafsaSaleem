@@ -1,4 +1,559 @@
-*{
-    margin: 0;
-    padding: 0;
+/* Global Style Reset */
+* {
+  font-family: 'Trebuchet MS', sans-serif;
+  /* font-family: 'Baloo 2', cursive; */
+
+  /* font-family: 'Quicksand', sans-serif; */
+
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+body {
+
+  height: 100vh;
+  margin: 0;
+}
+
+.upperScreen {
+  background-image: linear-gradient(to right, #682ced 0%, #9358f4);
+  height: 800px;
+  overflow: hidden;
+  position: relative;
+
+
+}
+
+/* Upper Bar */
+.Upper_Bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  position: relative;
+
+
+}
+
+.Heading {
+  text-decoration: none;
+  font-size: 3em;
+  font-weight: 700;
+  color: white;
+}
+
+.Upper_links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.Upper_links a {
+  text-decoration: none;
+  color: white;
+  margin: 0 20px;
+  font-size: 1rem;
+  display: inline-block;
+  cursor: pointer;
+}
+
+a i {
+  padding-left: 5px;
+  vertical-align: middle;
+}
+
+.Upper_Bar .UpperBarButtons button {
+  font-size: 1.1em;
+  font-weight: 500;
+  border-radius: 10px;
+  padding: 10px 20px;
+  border: 3px solid white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.UpperBarButtons .SignButton {
+  background-color: white;
+  color: #9358f4;
+}
+
+.UpperBarButtons .LoginButton {
+  color: white;
+  background-color: #9358f4;
+}
+.UpperBarButtons .LoginButton:hover
+
+{
+  color:#9358f4;
+  background-color: white;
+
+}
+.UpperBarButtons .SignButton:hover
+{
+  background-color: #9358f4;
+  color: #f0f0f0;
+}
+
+.UpperBarButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+/* Background Images */
+.background_image1,
+.background_image2 {
+  position: absolute;
+  z-index: -1;
+}
+
+
+.background_image2 {}
+
+/*-----------------MENU 1-------------------------*/
+/* Initially hide the dropdown */
+.DropDown-1 {
+  display: none;
+  opacity: 0;
+  transform: translateY(-20px);
+  /* Start slightly above */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  position: absolute;
+  top: 80%;
+  left: 18%;
+  z-index: 1000;
+}
+
+/* When hovering over the Product link or the dropdown itself, show it */
+#Bar-Item-1:hover+.DropDown-1,
+.DropDown-1:hover {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+  /* Bring it back to original position */
+  visibility: visible;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.DropDown-1 {
+  width: 70vmin;
+  height: 35vmin;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+.left-1 {
+  width: 45%;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+#MenuHeading {
+  font-weight: 700;
+  font-size: 2.5vmin;
+  margin-bottom: 10px;
+  color: #333;
+  width: 100%;
+}
+
+.p2 {
+  font-size: 1vmin;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.dropdown-image {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.ruler-1 {
+  width: 1px;
+  background-color: black;
+  height: 100%;
+  position: relative;
+  margin: 0 20px;
+}
+
+.right-1 {
+  width: 50%;
+  text-align: center;
+}
+
+.p1 {
+  font-size: 2vmin;
+  color: #555;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin: 10px 0;
+}
+
+.DropDown-1 li a {
+  text-decoration: none;
+  font-size: 1.8vmin;
+  color: black;
+  display: block;
+  padding: 8px;
+  border-radius: 10px;
+  margin-top: 25px;
+}
+
+/* Mid Page Headings */
+.midPage-Heading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  /* Remove conflicting 100vh */
+  margin-top: 100px;
+}
+
+.midPage-Heading #p1,
+#p2 {
+  font-size: 4rem;
+  font-weight: bolder;
+  margin: 1px 0;
+}
+
+#p2 {
+  font-size: 4rem;
+}
+
+#p3 {
+  font-size: 1.3rem;
+  margin-top: 50px;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+.manualButtons {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  justify-content: center;
+  margin-top: 50px;
+
+}
+
+.manualButtons button {
+  padding: 10px;
+  border: 3px solid white;
+  margin: 10px;
+  font-size: 1rem;
+  border-radius: 10px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.manualButtons .b1 {
+  background-image: linear-gradient(to right, #682ced, #9358f4);
+  width: 250px;
+}
+
+.manualButtons .b2 {
+  background-color: white;
+  color: #9358f4;
+  position: relative;
+  align-self: center;
+  width: 200px;
+  font-weight: bold;
+}
+
+.manualButtons .b1:hover {
+ border: 3.5px solid white;
+}
+
+.MiddleScreen {
+  background-color: white;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.SlideShow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.MiddleScreen .SlideShow #p1 {
+  color: black;
+  font-weight: 900;
+  font-size: 3rem;
+  padding: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: auto;
+}
+
+.MiddleScreen .SlideShow ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 200px;
+  padding: 20px;
+  list-style-type: none;
+  margin: 0;
+}
+
+.MiddleScreen .SlideShow ul li img {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.MiddleScreen .SlideShow ul li img:hover {
+  transform: scale(1.1);
+}
+
+.MiddleScreen .SlideShow .p2 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  background: linear-gradient(20deg, black, #9358f4);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-clip: text;
+  width: 450px;
+  margin-top: 100px;
+}
+
+.MiddleScreen .SlideShow .p3 {
+  color: black;
+  font-size: 1.3rem;
+  width: 700px;
+  margin-top: 50px;
+}
+
+.MiddleScreen .p4 {
+  color: black;
+  font-weight: 900;
+  font-size: 3rem;
+  padding: 20px;
+  align-self: center;
+  width: 500px;
+  margin-top: 150px;
+  border: 10px dotted rgb(219, 185, 34);
+}
+
+.MiddleScreen .p5 {
+  color: black;
+  font-size: 1.3rem;
+  width: 700px;
+  margin-top: 50px;
+}
+
+.MiddleScreen .CreatePresentation {
+  padding: 15px;
+  background-color: #9358f4;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 250px;
+  border: none;
+  margin-top: 50px;
+  transition: 0.6s ease;
+}
+
+.MiddleScreen .CreatePresentation:hover {
+  background-color: #682ced;
+}
+
+
+/*----------------Step-1-------------------*/
+/* Full screen Step1 div */
+.Step1 {
+  display: flex;
+  height: 100vh;
+  /* Full height of the viewport */
+  width: 100%;
+  /* Full width of the viewport */
+  overflow: hidden;
+  /* To make sure it's visible */
+
+}
+
+/* Left side (image) */
+.left-Step-1 {
+  flex: 1;
+  /* Take up 50% of the width */
+}
+
+.left-Step-1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensures the image covers the entire space */
+  padding: 50px;
+  border-radius: 700px;
+}
+
+/* Right side (text content) */
+.right-Step-1 {
+  flex: 1;
+  /* Take up 50% of the width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Vertically center the content */
+  padding: 50px;
+  /* Add some space around the text */
+  text-align: left;
+  border-radius: 20px;
+
+  color: black;
+}
+
+/* Styling for text */
+.right-Step-1 .p1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #682ced;
+}
+
+.right-Step-1 .p2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 900;
+  color: black;
+  width: 450px;
+}
+
+/* Styling for the list */
+.right-Step-1 ul {
+  padding-left: 0;
+}
+
+.right-Step-1 ul li {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: black;
+}
+
+/* Styling for the button */
+.right-Step-1 button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #682ced;
+  border: 2px solid #682ced;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 50px;
+  width: 250px;
+}
+
+/* Hover effect for button */
+.right-Step-1 button:hover {
+  border: 3px solid #682ced;
+}
+
+
+
+/* ------------- Step2 ------------*/
+.Step2 {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.left-Step-2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  text-align: left;
+  color: black;
+  border-radius: 40px;
+  padding-left: 200px;
+
+}
+
+.left-Step-2 .p1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #682ced;
+}
+
+.left-Step-2 .p2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 900;
+  color: black;
+  width: 450px;
+
+}
+
+.left-Step-2 ul {
+  padding-left: 0;
+}
+
+.left-Step-2 ul li {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: black;
+}
+
+.left-Step-2 button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #682ced;
+  border: 2px solid #682ced;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 50px;
+  width: 250px;
+}
+
+.left-Step-2 button:hover {
+  border: 3px solid #682ced;
+}
+
+.right-Step-2 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-Step-2 img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: cover;
+  padding: 50px;
+  border-radius: 900px;
+
 }
