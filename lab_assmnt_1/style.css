@@ -557,3 +557,60 @@ ul li {
   border-radius: 900px;
 
 }
+/* Main Animation for Headings */
+.midPage-Heading {
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .Upper_Bar {
+        flex-direction: column; /* Stack links in a column */
+        align-items: flex-start; /* Align to the left */
+    }
+
+    .Upper_links {
+        flex-direction: column; /* Stack links */
+        margin-top: 10px; /* Space between upper bar and links */
+    }
+
+    .Heading {
+        font-size: 2.5em; /* Smaller font size on mobile */
+    }
+
+    .manualButtons button {
+        width: 100%; /* Full width on mobile */
+    }
+}
+
+/* Section Animations */
+.MiddleScreen, .Step1, .Step2 {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards;
+}
+
+.MiddleScreen {
+    animation-delay: 1s;
+}
+
+.Step1, .Step2 {
+    animation-delay: 1.5s;
+}
+
+@media (max-width: 768px) {
+    /* Ensure sections are stacked vertically on mobile */
+    .Step1, .Step2 {
+        flex-direction: column; /* Stack left and right sections */
+    }
+}
