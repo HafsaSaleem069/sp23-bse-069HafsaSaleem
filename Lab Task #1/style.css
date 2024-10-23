@@ -135,7 +135,7 @@ nav {
 #picSlide {
   margin-top: 100px;
 }
-.MiddleScreen .SlideShow .hh1 {
+.MiddleScreen .SlideShow .hhh1 {
   font-weight: 900;
   background: linear-gradient(20deg, black, #9358f4);
   -webkit-background-clip: text;
@@ -146,12 +146,12 @@ nav {
   
 }
 
-.MiddleScreen .SlideShow .hh2 {
+.MiddleScreen .SlideShow .hhh2 {
   color: black;
   font-size: 1.3rem;
   margin-top: 100px;
 }
-.MiddleScreen .hh3 {
+.MiddleScreen .hhh3 {
   color: black;
   font-weight: 900;
   font-size: 3rem;
@@ -162,7 +162,7 @@ nav {
   border: 10px dotted rgb(219, 185, 34);
 }
 
-.MiddleScreen .hh4 {
+.MiddleScreen .hhh4 {
   color: black;
   font-size: 1.3rem;
   width: 500px;
