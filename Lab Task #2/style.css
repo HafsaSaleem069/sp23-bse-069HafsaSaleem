@@ -1,0 +1,148 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h1, h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+/* Form Styling */
+form {
+    margin-bottom: 30px;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #007bff;
+}
+
+.form-control {
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #0056b3;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Submit Button */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary, .btn-danger {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+/* Post List Styling */
+ul#postList {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul#postList li {
+    background-color: #f8f9fa;
+    border-left: 4px solid #007bff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+ul#postList li:hover {
+    transform: scale(1.02);
+}
+
+/* Post Title */
+ul#postList li strong {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Post Body */
+ul#postList li p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Delete/Edit Buttons */
+ul#postList li button {
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+ul#postList li .btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+ul#postList li .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    ul#postList li {
+        padding: 15px;
+    }
+
+    .btn-primary {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+}
