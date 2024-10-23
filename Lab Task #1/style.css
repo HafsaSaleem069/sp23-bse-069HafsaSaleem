@@ -1,0 +1,187 @@
+/* Global Style Reset */
+* {
+  font-family: 'Trebuchet MS', sans-serif;
+  /* font-family: 'Baloo 2', cursive; */
+
+  /* font-family: 'Quicksand', sans-serif; */
+
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+.upperScreen {
+  background-image: linear-gradient(to right, #682ced 0%, #9358f4);
+  height: auto;
+  padding-top: 56px;
+}
+
+nav {
+  background-image: linear-gradient(to right, #682ced 0%, #9358f4);
+  height: auto;
+}
+
+.navbar-brand {
+  width: auto;
+  top: 0;
+  left: 0;
+  position: relative;
+  font-size: 2.5rem;
+}
+
+@media (max-width:991px) {
+  .sidebar {
+    background-image: linear-gradient(to right, #682ced, #9358f4);
+    backdrop-filter: blur(10px);
+  }
+
+  .Links li {
+    margin-top: 20px;
+  }
+
+  .navbar-brand {
+    font-size: 2rem;
+  }
+
+  .UpperBarButtons a {
+    margin-top: 200px;
+  }
+
+  .UpperBarButtons {
+    margin-right: 10px;
+
+  }
+
+  .SignButton {
+    margin-right: 45px;
+  }
+}
+
+.Links {
+  width: auto;
+  padding-left: 20%;
+}
+
+.Links li {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.Links li a:hover {
+  text-decoration: underline;
+  transition: 1s ease;
+}
+
+.UpperBarButtons a {
+  border-radius: 10px;
+  border: 3px solid white;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.5s ease;
+  font-size: 1.1rem;
+}
+
+.LoginButton:hover,
+.SignButton:hover {
+  border: 5px solid white;
+}
+
+.midPage-Heading {
+
+  height: calc(100vh - 56px);
+
+}
+
+
+
+
+.manualButtons button {
+  padding: 10px;
+  border: 3px solid white;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.manualButtons .b1 {
+  background-image: linear-gradient(to right, #682ced, #9358f4);
+}
+
+.manualButtons .b2 {
+  background-color: white;
+  color: #9358f4;
+  position: relative;
+  align-self: center;
+  font-weight: bold;
+}
+
+.b1:hover,
+.b2:hover {
+  border: 5px solid white;
+  font-weight: 900;
+}
+
+/*----------------------- middle Screen */
+#pp1 {
+  color: black;
+  margin-top: 50px;
+}
+
+#picSlide {
+  margin-top: 100px;
+}
+.MiddleScreen .SlideShow .hh1 {
+  font-weight: 900;
+  background: linear-gradient(20deg, black, #9358f4);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-clip: text;
+  margin-top: 150px;
+  width: 600px;
+  
+}
+
+.MiddleScreen .SlideShow .hh2 {
+  color: black;
+  font-size: 1.3rem;
+  margin-top: 100px;
+}
+.MiddleScreen .hh3 {
+  color: black;
+  font-weight: 900;
+  font-size: 3rem;
+  padding: 20px;
+  align-self: center;
+  width: 500px;
+  margin-top: 180px;
+  border: 10px dotted rgb(219, 185, 34);
+}
+
+.MiddleScreen .hh4 {
+  color: black;
+  font-size: 1.3rem;
+  width: 500px;
+  margin-top: 50px;
+}
+
+
+.MiddleScreen .CreatePresentation {
+  padding: 15px;
+  background-color: #9358f4;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 250px;
+  border: none;
+  margin-top: 50px;
+  transition: 0.6s ease;
+}
+
+.MiddleScreen .CreatePresentation:hover {
+  background-color: #682ced;
+}
