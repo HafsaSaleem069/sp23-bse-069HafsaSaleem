@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Form</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Form container */
+        .form-container {
+            background-color: #1e1e1e;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Form heading */
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #ffcc00;
+        }
+
+        /* Input fields */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2a2a2a;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            box-shadow: 0 0 5px #ffcc00;
+            border: 1px solid #ffcc00;
+        }
+
+        /* Order button */
+        .order-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffcc00;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .order-btn:hover {
+            background-color: #ffc107;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Order Address</h2>
+        <div class="form-group">
+            <label for="street">Street</label>
+            <input type="text" id="street" placeholder="Enter street address">
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" placeholder="Enter city">
+        </div>
+        <div class="form-group">
+            <label for="postalCode">Postal Code</label>
+            <input type="text" id="postalCode" placeholder="Enter postal code">
+        </div>
+        <button class="order-btn" id="orderButton">Order</button>
+    </div>
+
+    <script>
+        // Variables to capture input data
+        const street = document.getElementById('street');
+        const city = document.getElementById('city');
+        const postalCode = document.getElementById('postalCode');
+        const orderButton = document.getElementById('orderButton');
+
+        // Add event listener to the order button
+        if (orderButton) {
+            orderButton.addEventListener('click', handleOrder);
+        } else {
+            console.warn('Order button not found on the page'); // Checkpoint 13
+        }
+
+        // Function to handle the order placement
+        async function handleOrder() {
+            console.log('Order button clicked'); // Checkpoint 9
+
+            // // Basic validation for address fields
+            // if (!recipientName.value.trim()) {
+            //     alert('Recipient Name is required.');
+            //     return;
+            // }
+            // if (!street.value.trim()) {
+            //     alert('Street is required.');
+            //     return;
+            // }
+            // if (!city.value.trim()) {
+            //     alert('City is required.');
+            //     return;
+            // }
+            // if (!postalCode.value.trim() || !/^\d{5,6}$/.test(postalCode.value)) {
+            //     alert('Please enter a valid Postal Code (5-6 digits).');
+            //     return;
+            // }
+
+            // Prepare the JSON object with address details
+            const addressData = {
+                street: street.value.trim(),
+                city: city.value.trim(),
+                postalCode: postalCode.value.trim(),
+            };
+
+            console.log('Address data to be sent:', addressData); // Debugging log
+
+            try {
+                // Send the data to the server
+                const response = await fetch('http://localhost:3000/home/cart/order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(addressData),
+                });
+
+                const data = await response.json();
+                console.log('Order response:', data); // Checkpoint 10
+
+                if (data.success) {
+                    alert('Order placed successfully!');
+                    // window.location.href = 'http://localhost:3000/home'; // Redirect to another page
+                } else {
+                    console.error('Error placing order:', data.message); // Checkpoint 11
+                    alert('Error placing order: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error with order request:', error); // Checkpoint 12
+                alert('Error placing order. Please try again.');
+            }
+        }
+
+    </script>
+</body>
+
+</html>

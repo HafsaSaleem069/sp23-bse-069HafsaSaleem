@@ -1,0 +1,50 @@
+.offcanvas-header {
+    background-color: black;
+    color: antiquewhite;
+}
+
+.offcanvas-title {
+    font-weight: 600;
+}
+
+.offcanvas-body {
+    background-color: black;
+}
+
+.offcanvas-body .nav-link {
+    color: antiquewhite;
+}
+.btn-close
+{
+    background-color:rgb(243, 150, 21);;
+;
+}
+.navbar-toggler-icon
+{
+    /* background-color: brown; */
+}
+.navbar-toggler
+{
+    background-color:rgba(249, 145, 0, 0.902);
+    backdrop-filter: blur(6px);
+}
+@media (max-width: 767px) {
+    #time {
+        font-size: 0.7rem;
+        justify-content: center;
+
+    }
+
+    .blended-image {
+        width: 280px;
+    }
+
+    h1 {
+        margin-top: 60px;
+        text-align: center;
+    }
+    .text-content
+    {
+        padding: 0;
+    }
+}

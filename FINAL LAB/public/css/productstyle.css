@@ -1,0 +1,216 @@
+* {
+    font-family: var(--bs-body-font-family);
+}
+
+.BrandDescription {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-height: 60vh;
+    background-size: cover;
+    /* Ensures the image covers the entire div */
+    background-position: center;
+    /* Centers the image within the div */
+    background-repeat: no-repeat;
+    /* Prevents the image from repeating */
+    transition: transform 1.5s ease, filter 0.5s ease;
+    /* Smooth transition for zoom and filter */
+}
+
+#BurgerHeading {
+    background-image: url("../images/burgerHeading.png");
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#PizzaHeading {
+    background-image: url("../images/pizzaMain.jpg");
+
+}
+
+#PizzaHeading h1 {
+    font-size: 3rem;
+    width: 600px;
+    text-align: left;
+    /* Large text */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#PizzaHeading p {
+    font-size: 1.25rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+#coffeeHeading {
+    background-image: url("../images/coffeeMain.jpg");
+}
+
+#DesiHeading {
+    background-image: url("../images/desiMain.jpg");
+    margin-top: 10px;
+}
+
+#dessertsHeading {
+    background-image: url("../images/dessertMain.jpg");
+    margin-top: 10px;
+}
+
+#otherHeading {
+    background-image: url("../images/otherHeading.jpeg");
+    margin-top: 10px;
+}
+
+/* Hover effect for zoom-out and filter */
+.BrandDescription:hover {
+    filter: brightness(0.9) saturate(1.5);
+    /* Slightly darkens and enhances colors */
+}
+
+/* Limit the width of text content */
+.text-content {
+    display: inline-block;
+    /* Shrinks to fit the content */
+    max-width: 100%;
+    /* Prevents overflow */
+    text-align: center;
+    /* Ensures proper alignment */
+    padding: 0 50px;
+}
+
+.PizzaDescription {
+    background-image: url("../images/pizzaHeading.jpg");
+
+}
+
+.burgerOuterdiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Full viewport height */
+}
+
+.bur {
+    margin-bottom: 3rem;
+}
+
+.bestSelling {
+    color: antiquewhite;
+    font-weight: 800;
+    font-size: 2rem;
+    box-shadow:
+        0 -4px 15px rgba(255, 148, 48, 0.465),
+        0 4px 15px rgba(255, 148, 48, 0.465);
+    padding: 20px;
+    border-radius: 40px;
+    margin-bottom: 100px;
+    margin-top: 50px;
+    width: 300px;
+}
+
+
+.burger1 {
+    border-radius: 50px;
+    text-align: center;
+    border: 1px solid rgb(63, 62, 61);
+    border-radius: 60px;
+    box-shadow:
+        0 4px 10px rgba(232, 120, 45, 0.654),
+        0 -4px 5px rgba(180, 109, 42, 0.434);
+    width: auto;
+
+}
+
+.burger1 img {
+    width: 290px;
+    border-radius: 50px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.name1 {
+    color: rgb(211, 145, 69);
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.explain1 {
+    font-size: 1rem;
+    color: rgb(212, 207, 183);
+}
+
+.price1 {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: rgb(189, 63, 38);
+    margin: 0 auto;
+    border-radius: 50px;
+    width: 100px;
+    /* Flavor brand color */
+}
+
+.add {
+    background-color: rgb(211, 145, 69);
+    color: rgb(212, 207, 183);
+    border: none;
+    margin-top: 10px;
+    width: 150px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 20px auto;
+}
+
+#sign1 {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* Stars Rating */
+.stars .bi {
+    font-size: 1.2rem;
+}
+
+/* Media query to ensure proper layout for small and larger screens */
+@media (max-width: 864px) {
+    .bestSelling {
+        font-size: 1.3rem;
+        width: 200px;
+        margin-bottom: 50px;
+        margin-top: 20px;
+    }
+
+    .burger1 {
+        border-radius: 20px;
+    }
+
+    .burger1 img {
+
+        border-radius: 30px;
+        max-height: 170px;
+    }
+
+    .name1 {
+
+        font-size: 1rem;
+    }
+
+    .explain1 {
+        font-size: 0.6rem;
+    }
+
+    .price1 {
+
+        font-size: 0.7rem;
+    }
+
+    .add {
+        font-size: 0.8rem;
+        width: 100px;
+
+    }
+
+
+}

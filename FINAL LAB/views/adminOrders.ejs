@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Orders</title>
+    <style>
+        * {
+            /* font-family: 'poppins', sans-serif; */
+            font-family: 'Trebuchet MS', sans-serif;
+
+        }
+
+        /* General Styles */
+        body {
+            background-color: black;
+            /* Dark Theme Background */
+            color: #877c7c;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #d68c03;
+            font-size: 2rem;
+            /* Header Accent Color */
+        }
+
+        .container {
+            font-size: 0.8rem;
+            margin: 50px;
+            padding: 20px;
+            background-color: #252526;
+            /* Slightly Lighter Dark Box */
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(121, 118, 118, 0.4);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th,
+        table td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #d68c03;
+            /* Header Row Color */
+            color: #121212;
+            /* Dark Text */
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        table tbody tr {
+            background-color: 252526;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        table tbody tr:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        table tbody td {
+            border-bottom: 1px solid #444;
+            color: #DDDDDD;
+        }
+
+        /* Status Buttons */
+        .status-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .pending {
+            background-color: #252526;
+            border: 2px solid #d68c03;
+            color: #d68c03;
+        }
+
+        .pending:hover {
+
+            background-color: #d68c03;
+            color: #252526;
+        }
+
+        .delivered {
+            background-color: #66BB6A;
+            color: #121212;
+        }
+
+        .delivered:hover {
+            background-color: #43A047;
+        }
+
+        .canceled {
+            background-color: #EF5350;
+            color: #121212;
+        }
+
+        .canceled:hover {
+            background-color: #E53935;
+        }
+
+        .new-order-btn {
+            background-color: #252526;
+            border: 2px solid #d68c03;
+            color: #d68c03;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .new-order-btn:hover {
+            background-color: #d68c03;
+            color: #252526;
+        }
+
+        /* 
+        .orderDetails {
+            border: 2px solid red;
+        } */
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+
+            table,
+            table thead,
+            table tbody,
+            table th,
+            table td,
+            table tr {
+                display: block;
+            }
+
+            table tr {
+                margin-bottom: 15px;
+                border: 1px solid #444;
+                border-radius: 10px;
+                overflow: hidden;
+            }
+
+            table td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+
+            table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                width: 45%;
+                font-weight: bold;
+                text-align: left;
+            }
+        }
+
+        #name {
+            color: #EF5350;
+            text-decoration: none;
+        }
+
+        #name:hover {
+            text-decoration: underline;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .controls input,
+        .controls select,
+        .controls button {
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            margin: 0 5px;
+            padding: 10px 15px;
+            border: none;
+            background-color: #c97200;
+            color: #121212;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pagination button:hover {
+            background-color: #e68400;
+        }
+
+        .pagination button.active {
+            background-color: #e68400;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Orders</h1>
+        <button class="new-order-btn">New Order</button>
+
+        <!-- Search and Filter Controls -->
+        <div class="controls">
+            <input type="text" id="searchBox" placeholder="Search Orders..." oninput="searchOrders()">
+            <select id="statusFilter" onchange="filterOrders()">
+                <option value="">All Status</option>
+                <option value="Pending">Pending</option>
+                <option value="Delivered">Delivered</option>
+                <option value="Canceled">Canceled</option>
+            </select>
+            <button onclick="sortOrders()">Sort by Total Price</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>User Name</th>
+                    <th>Order Details</th>
+                    <th>Total Price</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% orders.forEach(order=> { %>
+                    <tr>
+                        <td data-label="Order ID">
+                            <%= order._id %>
+                        </td>
+                        <td data-label="User Name">
+                            <a id="name" href="http://localhost:3000/register">
+                                <%= order.userName %>
+                            </a>
+
+                        </td>
+                        <td data-label="Order Details">
+                            <% order.purchases.forEach(purchase=> { %>
+                                <p class="orderDetails"><strong>
+                                        <%= purchase.name %>
+                                    </strong> - <%= purchase.quantity %> * <%= purchase.totalPrice %>/-
+                                </p>
+                                <% }); %>
+                        </td>
+                        <td data-label="Total Price">
+                            <%= order.purchases.reduce((sum, p)=> sum + p.totalPrice, 0) %>/-
+                        </td>
+                        <td data-label="Status">
+                            <% if (order.orderStatus==='Pending' ) { %>
+                                <button class="status-btn pending"
+                                    onclick="updateStatus('<%= order._id %>', 'Delivered')">Pending</button>
+                                <% } else { %>
+                                    <button class="status-btn delivered">Delivered</button>
+                                    <% } %>
+                        </td>
+                    </tr>
+                    <% }); %>
+
+            </tbody>
+        </table>
+        <!-- Pagination Controls -->
+        <div id="pagination">
+            <% for (let i=1; i <=totalPages; i++) { %>
+                <button onclick="changePage('<%= i %>')">
+                    <%= i %>
+                </button>
+                <% } %>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+
+        async function updateStatus(orderId, status) {
+            const response = await fetch('http://localhost:3000/admin/orders/update-status', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ orderId, status }),
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                console.log("status updated")
+                location.reload(); // Reload page to reflect changes
+                const response = await fetch('http://localhost:3000/admin/orders/update-status')
+            } else {
+                alert(result.message);
+            }
+        }
+        let searchTerm = "";
+        let statusFilter = "";
+        let sortOrder = "asc";
+
+        // Search Function
+        function searchOrders() {
+            searchTerm = document.getElementById("searchBox").value;
+            fetchOrders();
+        }
+
+        // Filter Function
+        function filterOrders() {
+            statusFilter = document.getElementById("statusFilter").value;
+            fetchOrders();
+        }
+
+        // Sort Function
+        function sortOrders() {
+            sortOrder = sortOrder === "asc" ? "desc" : "asc";
+            fetchOrders();
+        }
+
+        // Pagination Change
+        function changePage(page) {
+            fetchOrders(page);
+        }
+
+        // Fetch Orders with Filters
+        async function fetchOrders(page = 1) {
+            try {
+                const response = await fetch(`http://localhost:3000/admin/orders?page=${page}&search=${searchTerm}&status=${statusFilter}&sort=${sortOrder}`);
+                const parser = new DOMParser();
+                const html = await response.text();
+                const newDoc = parser.parseFromString(html, 'text/html');
+
+                // Replace table body
+                const newTableBody = newDoc.querySelector("table tbody");
+                const oldTableBody = document.querySelector("table tbody");
+                oldTableBody.innerHTML = newTableBody.innerHTML;
+
+                // Update pagination
+                const newPagination = newDoc.querySelector("#pagination");
+                const oldPagination = document.querySelector("#pagination");
+                oldPagination.innerHTML = newPagination.innerHTML;
+
+            } catch (error) {
+                console.error("Error fetching orders:", error);
+            }
+        }
+    </script>
+</body>
+
+</html>

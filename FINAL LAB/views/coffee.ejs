@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coffee</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/productstyle.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <%- include ('./partials/navbar.ejs') %>
+
+        //this the image on top page
+        <div class="innerBody">
+            <div class="BrandDescription" id="coffeeHeading">
+            </div>
+        </div>
+
+        <!----------------------------------BURGER SECTION------------------------->
+
+        <div class="Section1">
+            <div class="text-center my-3 burgerOuterdiv">
+                <!-- Best Selling Heading -->
+                <p class="bestSelling ">Coffee</p>
+            </div>
+            <div class="mx-3 bur">
+
+                <!-- Row of Burgers -->
+                <div class="row row-cols-2 row-cols-md-4 g-4">
+                    <!-- First Product -->
+                    <div class="col">
+                        <div class="burger1 px-2 py-3">
+                            <img src="../images/blackCoffee.jpeg" alt="Black Coffee" class="img-fluid mb-3">
+                            <p class="name1">Black Coffee</p>
+                            <p class="explain1">Strong and aromatic brew</p>
+                            <p class="price1">
+                                790 /-
+                            </p>
+                            <button class="add">Add</button>
+                        </div>
+                    </div>
+
+                    <!-- Second Product -->
+                    <div class="col">
+                        <div class="burger1 p-3">
+                            <img src="../images/cappuccino.jpeg" alt="Cappuccino" class="img-fluid mb-3">
+                            <p class="name1">Cappuccino</p>
+                            <p class="explain1">Creamy coffee with froth</p>
+                            <p class="price1">
+                                400 /-
+                            </p>
+                            <button class="add">Add</button>
+                        </div>
+                    </div>
+
+                    <!-- Third Product -->
+                    <div class="col">
+                        <div class="burger1 p-3">
+                            <img src="../images/Espresso Martini.jpeg" alt="Espresso Martini" class="img-fluid mb-3">
+                            <p class="name1">Espresso Martini</p>
+                            <p class="explain1">Espresso with a twist</p>
+                            <p class="price1">
+                                600 /-
+                            </p>
+                            <button class="add">Add</button>
+                        </div>
+                    </div>
+
+                    <!-- Fourth Product -->
+                    <div class="col">
+                        <div class="burger1 p-3">
+                            <img src="../images/Cold Brew Coffee.jpeg" alt="Cold Brew Coffee" class="img-fluid mb-3">
+                            <p class="name1">Cold Brew Coffee</p>
+                            <p class="explain1">Smooth and refreshing drink</p>
+                            <p class="price1">
+                                750 /-
+                            </p>
+                            <button class="add">Add</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="Section1">
+
+                <div class="mx-3 bur">
+
+                    <!-- Row of Coffee Products -->
+                    <div class="row row-cols-2 row-cols-md-4 g-4">
+                        <!-- Fifth Product -->
+                        <div class="col">
+                            <div class="burger1 p-3">
+                                <img src="../images/coffee latte cup.jpeg" alt="Latte Coffee" class="img-fluid mb-3">
+                                <p class="name1">Latte Coffee</p>
+                                <p class="explain1">Rich and creamy delight</p>
+                                <p class="price1">
+                                    450 /-
+                                </p>
+                                <button class="add">Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Sixth Product -->
+                        <div class="col">
+                            <div class="burger1 p-3">
+                                <img src="../images/Mocha recipe.jpeg" alt="Mocha Latte" class="img-fluid mb-3">
+                                <p class="name1">Mocha Latte</p>
+                                <p class="explain1">Coffee with chocolate flavor</p>
+                                <p class="price1">
+                                    500 /-
+                                </p>
+                                <button class="add">Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Seventh Product -->
+                        <div class="col">
+                            <div class="burger1 p-3">
+                                <img src="../images/lotusCoffee.jpeg" alt="Special Lotus Coffee" class="img-fluid mb-3">
+                                <p class="name1">Special Lotus Coffee</p>
+                                <p class="explain1">Infused with lotus biscuit</p>
+                                <p class="price1">
+                                    700 /-
+                                </p>
+                                <button class="add">Add</button>
+                            </div>
+                        </div>
+
+                        <!-- Eighth Product -->
+                        <div class="col">
+                            <div class="burger1 p-3">
+                                <img src="../images/Turkish Coffee.jpeg" alt="Turkish Coffee" class="img-fluid mb-3">
+                                <p class="name1">Turkish Coffee</p>
+                                <p class="explain1">Traditional and flavorful cup</p>
+                                <p class="price1">
+                                    800 /-
+                                </p>
+                                <button class="add">Add</button>
+                            </div>
+                        </div>
+
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+                            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+                            crossorigin="anonymous"></script>
+
+                    </div>
+                </div>
+            </div>
+            <script src="../js/product.js"></script>
+</body>
+
+</html>
