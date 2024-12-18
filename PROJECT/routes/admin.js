@@ -10,7 +10,11 @@ router.get('/users', (req, res) => {
     res.render("adminUsers"); // Render adminDashboard.ejs with usersdata
 });
 
-//------------------//Handling Orders
+//-----------------------------//Handling Orders
+//pagination
+//searching
+//filtering
+//sorting
 
 router.get('/orders', async (req, res) => {
     try {

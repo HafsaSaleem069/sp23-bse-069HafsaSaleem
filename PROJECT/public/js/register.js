@@ -51,22 +51,22 @@ async function register(event) {
         return;
     }
 
-    // if (!validateEmail(email)) {
-    //     alert("Please enter a valid email address.");
-    //     return;
-    // }
+    if (!validateEmail(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
 
-    // if (!validatePassword(password)) {
-    //     alert(
-    //         "Password must be at least 8 characters long, contain a mix of uppercase, lowercase, numbers, and special characters."
-    //     );
-    //     return;
-    // }
+    if (!validatePassword(password)) {
+        alert(
+            "Password must be at least 8 characters long, contain a mix of uppercase, lowercase, numbers, and special characters."
+        );
+        return;
+    }
 
-    // if (!validatePhone(phone)) {
-    //     alert("Please enter a valid 10-digit phone number.");
-    //     return;
-    // }
+    if (!validatePhone(phone)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return;
+    }
 
     try {
         // Make the POST request
