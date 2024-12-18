@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Personal Information Section -->
+        <section class="user-info">
+            <div class="info-card">
+                <h1 class="welcome-title">Welcome, <%= user.fullname %></h1>
+                <div class="details">
+                    <p><strong>Email:</strong> <%= user.email %></p>
+                    <p><strong>Phone:</strong> <%= user.phone %></p>
+                    <p><strong>Address:</strong> <%= user.address %></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Purchase History Section -->
+        <section class="purchase-history">
+            <h2>Your Purchase History</h2>
+            <% if (purchaseHistory.length > 0) { %>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
+                                <th>Purchase Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% purchaseHistory.forEach(purchase => { %>
+                                <tr>
+                                    <td><%= purchase.name %></td>
+                                    <td><%= purchase.quantity %></td>
+                                    <td><%= purchase.totalPrice %></td>
+                                    <td><%= new Date(purchase.purchaseDate).toLocaleDateString() %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            <% } else { %>
+                <p class="no-purchases">No purchases found.</p>
+            <% } %>
+        </section>
+    </div>
+</body>
+</html>

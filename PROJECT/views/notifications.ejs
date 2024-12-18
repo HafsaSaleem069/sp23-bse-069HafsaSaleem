@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="/styles/notifications.css">
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #121212;
+            /* Dark background */
+            color: #ffffff;
+            /* White text */
+            font-family: Arial, sans-serif;
+            /* Font style */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container Styles */
+        .container {
+            max-width: 800px;
+            /* Max width for the container */
+            margin: 50px auto;
+            /* Centering the container */
+            padding: 20px;
+            /* Padding around the container */
+            border-radius: 10px;
+            /* Rounded corners for the container */
+            background: rgba(30, 30, 30, 0.8);
+            /* Semi-transparent dark background */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            /* Subtle shadow */
+        }
+
+        /* Title Styles */
+        h1 {
+            text-align: center;
+            /* Center the title */
+            margin-bottom: 20px;
+            /* Space below title */
+        }
+
+        /* List Styles */
+        ul {
+            list-style-type: none;
+            /* Remove bullets */
+            padding: 0;
+            /* Remove default padding */
+        }
+
+        /* Notification Styles */
+        li {
+            background-color: #1e1e1e;
+            /* Notification background */
+            border-radius: 10px;
+            /* Rounded corners */
+            margin: 10px 0;
+            /* Space between notifications */
+            padding: 15px;
+            /* Padding inside notifications */
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            /* Transition effects */
+        }
+
+        li:hover {
+            transform: translateY(-3px);
+            /* Raise on hover */
+            background-color: #2a2a2a;
+            /* Slightly lighter on hover */
+        }
+
+        /* Read Notification Styles */
+        .read {
+            opacity: 0.7;
+            /* Slightly transparent for read notifications */
+        }
+
+        /* Unread Notification Styles */
+        .unread {
+            font-weight: bold;
+            /* Bold font for unread notifications */
+        }
+
+        /* No Notifications Message */
+        p {
+            text-align: center;
+            /* Center text */
+            color: #cccccc;
+            /* Light gray color */
+            font-style: italic;
+            /* Italic text style */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Notifications</h1>
+        <% if (notifications.length> 0) { %>
+            <ul>
+                <% notifications.forEach(notification=> { %>
+                    <li class="<%= notification.isRead ? 'read' : 'unread' %>">
+                        <%= notification.message %> - <small>
+                                <%= notification.createdAt.toLocaleString() %>
+                            </small>
+                    </li>
+                    <% }); %>
+            </ul>
+            <% } else { %>
+                <p>No notifications available</p>
+                <% } %>
+    </div>
+</body>
+
+</html>
